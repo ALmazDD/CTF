@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Button, Dropdown, Form, Row, Col } from 'react-bootstrap';
 import { Context } from '../../index';
-import { createChallenge, fetchDifficulties, fetchChallenges, fetchTypes } from '../../http/deviceAPI';
+import { createChallenge, fetchDifficulties, fetchChallenges, fetchTypes } from '../../http/challengeAPI';
 import { observer } from 'mobx-react-lite';
 
-const CreateDevice = observer(({ show, onHide }) => {
+const CreateChallenge = observer(({ show, onHide }) => {
   const { challenge } = useContext(Context);
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
@@ -31,12 +31,12 @@ const CreateDevice = observer(({ show, onHide }) => {
     setFile(e.target.files[0]);
   };
 
-  const addDevice = () => {
+  const addChallenge = () => {
     const formData = new FormData();
     formData.append('name', name);
     formData.append('price', `${price}`);
     formData.append('img', file);
-    formData.append('brandId', challenge.selectedDifficulty.id);
+    formData.append('challengeId', challenge.selectedDifficulty.id);
     formData.append('typeId', challenge.selectedType.id);
     formData.append('info', JSON.stringify(info));
     createChallenge(formData).then((data) => onHide());
@@ -45,7 +45,7 @@ const CreateDevice = observer(({ show, onHide }) => {
   return (
     <Modal show={show} onHide={onHide} centered>
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Добавить устройство</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Добавить задачу</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
@@ -63,7 +63,7 @@ const CreateDevice = observer(({ show, onHide }) => {
             <Dropdown.Toggle>{challenge.selectedDifficulty.name || 'Выберите тип'}</Dropdown.Toggle>
             <Dropdown.Menu>
               {challenge.difficulties.map((difficulty) => (
-                <Dropdown.Item onClick={() => challenge.setSelectedBrand(difficulty)} key={difficulty.id}>
+                <Dropdown.Item onClick={() => challenge.setSelectedDifficulty(difficulty)} key={difficulty.id}>
                   {difficulty.name}
                 </Dropdown.Item>
               ))}
@@ -116,7 +116,7 @@ const CreateDevice = observer(({ show, onHide }) => {
         <Button variant="outline-danger" onClick={onHide}>
           Закрыть
         </Button>
-        <Button variant="outline-success" onClick={addDevice}>
+        <Button variant="outline-success" onClick={addChallenge}>
           Добавить
         </Button>
       </Modal.Footer>
@@ -124,4 +124,4 @@ const CreateDevice = observer(({ show, onHide }) => {
   );
 });
 
-export default CreateDevice;
+export default CreateChallenge;

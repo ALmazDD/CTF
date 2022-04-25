@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Button, Form } from 'react-bootstrap';
-import { createDifficulty, createType } from '../../http/deviceAPI';
+import { createDifficulty, createType } from '../../http/challengeAPI';
 
 const CreateDifficulty = ({ show, onHide }) => {
   const [value, setValue] = useState('');

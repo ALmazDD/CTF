@@ -7,7 +7,7 @@ import DifficultyBar from '../components/DifficultyBar';
 import ChallengeList from '../components/ChallengeList';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../index';
-import { fetchDifficulties, fetchDevices, fetchTypes, fetchChallenges } from '../http/deviceAPI';
+import { fetchDifficulties, fetchDevices, fetchTypes, fetchChallenges } from '../http/challengeAPI';
 import Pages from '../components/Pages';
 
 const CTF = observer(() => {
