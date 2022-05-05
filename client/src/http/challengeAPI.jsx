@@ -26,7 +26,7 @@ export const createChallenge = async (challenge) => {
 };
 
 export const fetchChallenges = async (typeId, difficultyId, page, limit = 5) => {
-  const { data } = await $host.get('api/device', {
+  const { data } = await $host.get('api/challenge', {
     params: {
       typeId,
       difficultyId,

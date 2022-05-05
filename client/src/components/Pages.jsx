@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../index';
-import { Pagination } from 'react-bootstrap';
 
 const Pages = observer(() => {
   const { challenge } = useContext(Context);
@@ -13,13 +12,15 @@ const Pages = observer(() => {
   }
 
   return (
-    <Pagination className="mt-3">
-      {pages.map((page) => (
-        <Pagination.Item key={page} active={challenge.page === page} onClick={() => challenge.setPage(page)}>
-          {page}
-        </Pagination.Item>
-      ))}
-    </Pagination>
+    // <Pagination className="mt-3">
+    //   {pages.map((page) => (
+    //     <Pagination.Item key={page} active={challenge.page === page} onClick={() => challenge.setPage(page)}>
+    //        {page}
+    //     </Pagination.Item>
+        
+    //   ))}
+    // </Pagination>
+    <div></div>
   );
 });
 

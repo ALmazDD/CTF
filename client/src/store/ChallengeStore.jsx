@@ -19,10 +19,9 @@ export default class ChallengeStore {
   setDifficulties(difficulties) {
     this._difficulties = difficulties;
   }
-  setDevices(challenges) {
+  setChallenges(challenges) {
     this._challenges = challenges;
   }
-
   setSelectedType(type) {
     this.setPage(1);
     this._selectedType = type;

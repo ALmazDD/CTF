@@ -5,7 +5,6 @@ import NavBar from "./components/NavBar/NavBar";
 import {observer} from "mobx-react-lite";
 import {Context} from "./index";
 import {check} from "./http/userAPI";
-import {Spinner} from "react-bootstrap";
 
 const App = observer(() => {
     const {user} = useContext(Context)
@@ -19,7 +18,8 @@ const App = observer(() => {
     }, [])
 
     if (loading) {
-        return <Spinner animation={"grow"}/>
+        return 1;
+        // return <Spinner animation={"grow"}/>
     }
 
     return (
