@@ -7,6 +7,8 @@ export default class ChallengeStore {
     this._challenges = [];
     this._selectedType = {};
     this._selectedDifficulty = {};
+
+    
     this._page = 1;
     this._totalCount = 0;
     this._limit = 3;

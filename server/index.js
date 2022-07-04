@@ -12,9 +12,11 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 // для веб запросов
+//CORS DOMEN CHECK 
 app.use(cors());
 //для парсинга формата json
 app.use(express.json());
+//COMPRESSION JSON
 //для get файлов
 app.use(express.static(path.resolve(__dirname, 'static')));
 //для залива файлов в бд
